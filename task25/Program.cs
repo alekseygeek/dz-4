@@ -3,11 +3,9 @@
 //2, 4 -> 16
 Console.Clear();
 Console.Write("Введите число A: ");
-int num1 = int.Parse(Console.ReadLine()!);
+int a = int.Parse(Console.ReadLine()!);
 Console.Write("Введите число B: ");
-int num2 = int.Parse(Console.ReadLine()!);
-ToDegree(num1, num2);
-void ToDegree(int a, int b)
+int b = int.Parse(Console.ReadLine()!);
 {
     int result = 1;
     for (int i = 1; i <= b; i++)
