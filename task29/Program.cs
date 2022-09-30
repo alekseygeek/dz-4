@@ -1,16 +1,43 @@
 ﻿//Задача 29: Напишите программу, которая задаёт массив из N элементов и выводит их на экран.
 //1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 //6, 1, 33 -> [6, 1, 33]
-int lenArray = ReadInt("введите массив мз N элементов : ");
+Console.Clear();
+Console.Write("Введите размер массива: ");
+int arrayLenght = int.Parse(Console.ReadLine()!);
 
-int[] randomArray = new int[lenArray];
-for (int i = 0; i < randomArray.Length; i++)
+int[] arr = new int[arrayLenght];
+
+FillArray(arr);
+PrintArray(arr);
+SortArray(arr);
+
+
+void FillArray(int[] array)
 {
-    randomArray[i] = new Random().Next(-10,10);
-    Console.Write(randomArray[i] + ", ");
+    Random randGenerator = new Random();
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = randGenerator.Next(-10, 10);
+    }
 }
-int ReadInt(string num)
+
+void PrintArray(int[] array)
 {
-    Console.Write(num);
-    return Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}, ");
+    }
+}
+
+void SortArray(int[] array)
+{
+    Console.WriteLine();
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+        if (i < array.Length - 1)
+            Console.Write(array[i] + ", ");
+        else
+            Console.Write(array[i] + ".");
+    Console.Write(" ]");
+
 }
