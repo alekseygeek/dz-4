@@ -9,6 +9,7 @@
     // 7 4 2 1
     // 9 5 3 2
     // 8 4 4 2
+
     Console.Clear();
     Random random = new Random();
     int rows = 3;
@@ -16,6 +17,7 @@
     int[,] numbers = new int[rows, colums];
 
     FillArrayNumbers(numbers);
+    Console.ForegroundColor = ConsoleColor.Green;
     PrintArray(numbers);
     Console.WriteLine();
     ArrangeNumber(numbers);
@@ -63,11 +65,8 @@
                     }
                 }
             }
-
-
         }
     }
-
 }
 void task56()
 {
@@ -78,6 +77,7 @@ void task56()
     // 8 4 2 4
     // 5 2 6 7
     // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
     Console.Clear();
     Random random = new Random();
     int rows = 5;
@@ -113,7 +113,6 @@ void task56()
     }
     void ArrangeNumber(int[,] array)
     {
-
         int minSum = 0;
         int sumRows = SmallestSum(array, 0);
         for (int i = 1; i < array.GetLength(0); i++)
@@ -125,6 +124,7 @@ void task56()
                 minSum = i;
             }
         }
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine($"Наименьшая сумма элементов = {sumRows}, находится в {minSum + 1} строке.");
         int SmallestSum(int[,] array, int i)
         {
@@ -135,13 +135,7 @@ void task56()
             }
             return sum;
         }
-
     }
-
-
-
-
-
 }
 void task58()
 {
@@ -156,6 +150,7 @@ void task58()
 
 }
 Console.Clear();
+Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine("\n Выберите задачу, которую хотите посмотреть:\n\t1 - Задача 54 \n\t2 - Задача 56 \n\t3 - Задача 58 \n\t4 - Выход");
 int num = Convert.ToInt32(Console.ReadLine());
 switch (num)
@@ -170,6 +165,7 @@ switch (num)
         task58();
         break;
     case 4:
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Вы вышли из программы");
         break;
 }
