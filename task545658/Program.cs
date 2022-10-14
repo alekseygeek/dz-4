@@ -203,50 +203,78 @@ void task58()
 }
 void task64()
 {
-// Задача 64: Задайте значения N и M. Напишите программу, которая выведет все чётные натуральные числа в промежутке от M до N с помощью рекурсии.
-// M = 1; N = 5 -> 2, 4
-// M = 4; N = 8 -> 4, 6, 8
+    // Задача 64: Задайте значения N и M. Напишите программу, которая выведет все чётные натуральные числа в промежутке от M до N с помощью рекурсии.
+    // M = 1; N = 5 -> 2, 4
+    // M = 4; N = 8 -> 4, 6, 8
 
+    Console.Clear();
+    int IntNumber()
+    {
+        Console.Write("Введите число : ");
+        int n = Convert.ToInt32(Console.ReadLine());
+        return n;
+    }
+    int n = IntNumber();
+    int m = IntNumber();
 
+    void AllEven(int bigNum, int lowNum)
+    {
+        if (lowNum <= bigNum)
+        {
+            if (lowNum % 2 == 0)
+            {
+                Console.Write($"{lowNum}, ");
+                lowNum++;
+                AllEven(bigNum, lowNum);
+            }
+            else
+            {
+                lowNum++;
+                AllEven(bigNum, lowNum);
+            }
+        }
+    }
+
+    AllEven(m, n);
 }
 void task66()
 {
-// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N с помощью рекурсии.
-// M = 1; N = 15 -> 120
-// M = 4; N = 8 -> 30
+    // Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N с помощью рекурсии.
+    // M = 1; N = 15 -> 120
+    // M = 4; N = 8 -> 30
 
-Console.Clear();
-int M = 4;
-int N = 8;
-int Recurs(int M, int N)
-{
-    if (M == N)
-        return N;
-    return N + Recurs(M, N -1);
-}
-Console.WriteLine($"Сумма натуральных элементов в промежутке от {M} до {N} = {Recurs(M, N)}");
+    Console.Clear();
+    int M = 4;
+    int N = 8;
+    int Recurs(int M, int N)
+    {
+        if (M == N)
+            return N;
+        return N + Recurs(M, N - 1);
+    }
+    Console.WriteLine($"Сумма натуральных элементов в промежутке от {M} до {N} = {Recurs(M, N)}");
 }
 
 void task68()
 {
-// Задача 68: Задайте значения M и N. Напишите программу, которая найдёт наибольший общий делитель (НОД) этих чисел с помощью рекурсии.
-// M = 28; N = 7 -> 7
+    // Задача 68: Задайте значения M и N. Напишите программу, которая найдёт наибольший общий делитель (НОД) этих чисел с помощью рекурсии.
+    // M = 28; N = 7 -> 7
 
-Console.Clear();
-int M = 28;
-int N = 7;
-int Recurs(int M, int N)
-{
-    if (N == 0)
+    Console.Clear();
+    int M = 28;
+    int N = 7;
+    int Recurs(int M, int N)
     {
-        return M;
-    }
-    else
-        return Recurs(N, M % N);
+        if (N == 0)
+        {
+            return M;
+        }
+        else
+            return Recurs(N, M % N);
 
-}
-int result = Recurs(M, N);
-Console.Write(result);
+    }
+    int result = Recurs(M, N);
+    Console.Write(result);
 
 }
 Console.Clear();
@@ -273,7 +301,7 @@ switch (num)
     case 6:
         task68();
         break;
-    case 7:    
+    case 7:
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Вы вышли из программы");
         break;
