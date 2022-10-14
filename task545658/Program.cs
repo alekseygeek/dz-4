@@ -23,7 +23,7 @@
     ArrangeNumber(numbers);
     PrintArray(numbers);
     Console.WriteLine();
-    Console.WriteLine("Массив с упорядоченными значениями");
+    Console.WriteLine("массив с упорядоченными значениями");
 
     void FillArrayNumbers(int[,] array)
     {
@@ -147,11 +147,111 @@ void task58()
     // 18 20
     // 15 18
 
+    Console.Clear();
+    int size = 2;
+    int[,] matrixA = new int[size, size];
+    int[,] matrixB = new int[size, size];
+    int[,] matrixC = new int[size, size];
+
+    void MultiplyMatrix(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array[i, j] = new Random().Next(1, 4);
+            }
+        }
+    }
+
+    void PrintArray(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            Console.Write("[ ");
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write(array[i, j] + " ");
+            }
+            Console.Write("]");
+            Console.WriteLine("");
+        }
+    }
+
+    MultiplyMatrix(matrixA);
+    MultiplyMatrix(matrixB);
+
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            for (int k = 0; k < size; k++)
+            {
+                matrixC[i, j] = matrixC[i, j] + (matrixA[i, k] * matrixB[k, j]);
+            }
+        }
+    }
+    Console.WriteLine("Матрица: А");
+    PrintArray(matrixA);
+    Console.WriteLine();
+    Console.WriteLine("Матрица: В");
+    PrintArray(matrixB);
+    Console.WriteLine();
+    Console.WriteLine("Произведение двух матриц");
+    PrintArray(matrixC);
+
+}
+void task64()
+{
+// Задача 64: Задайте значения N и M. Напишите программу, которая выведет все чётные натуральные числа в промежутке от M до N с помощью рекурсии.
+// M = 1; N = 5 -> 2, 4
+// M = 4; N = 8 -> 4, 6, 8
+
+
+}
+void task66()
+{
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N с помощью рекурсии.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8 -> 30
+
+Console.Clear();
+int M = 4;
+int N = 8;
+int Recurs(int M, int N)
+{
+    if (M == N)
+        return N;
+    return N + Recurs(M, N -1);
+}
+Console.WriteLine($"Сумма натуральных элементов в промежутке от {M} до {N} = {Recurs(M, N)}");
+}
+
+void task68()
+{
+// Задача 68: Задайте значения M и N. Напишите программу, которая найдёт наибольший общий делитель (НОД) этих чисел с помощью рекурсии.
+// M = 28; N = 7 -> 7
+
+Console.Clear();
+int M = 28;
+int N = 7;
+int Recurs(int M, int N)
+{
+    if (N == 0)
+    {
+        return M;
+    }
+    else
+        return Recurs(N, M % N);
+
+}
+int result = Recurs(M, N);
+Console.Write(result);
 
 }
 Console.Clear();
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("\n Выберите задачу, которую хотите посмотреть:\n\t1 - Задача 54 \n\t2 - Задача 56 \n\t3 - Задача 58 \n\t4 - Выход");
+Console.WriteLine("\n Выберите задачу, которую хотите посмотреть:\n\t1 - Задача 54 \n\t2 - Задача 56 \n\t3 - Задача 58\n\t4 - Задача 64 \n\t5 - Задача 66 \n\t6 - Задача 68 \n\t7 - Выход");
 int num = Convert.ToInt32(Console.ReadLine());
 switch (num)
 {
@@ -165,6 +265,15 @@ switch (num)
         task58();
         break;
     case 4:
+        task64();
+        break;
+    case 5:
+        task66();
+        break;
+    case 6:
+        task68();
+        break;
+    case 7:    
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Вы вышли из программы");
         break;
